@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var array = [1,3,4,6,8,2,34,5,7,23,5,6,23,55,5,1,1,2,8,0];
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,12 +17,16 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        testQuickSort();
+//        testQuickSort();
+        testBubbleSort();
     }
     
     func testQuickSort() {
-        var array = [1,3,4,6,8,2,34,5,7,23,5,6,23,55,5,1,1,2,8,0];
-        SortClass.quickSort(array: &array, low: 0, high: array.count-1);
+        SortClass.quickSort(&array, 0, array.count-1);
+    }
+    
+    func testBubbleSort() {
+        SortClass.bubbleSort(&array);
     }
 
 }
