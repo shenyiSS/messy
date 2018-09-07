@@ -61,12 +61,14 @@ extension SortClass {
                 }
             }
         }
+        
         return array;
     }
     
     //插入排序
     static func insertSort(_ array : inout[Int]) -> [Int] {
         times = 0;
+        
         for i in 1..<(array.count) {
             for j in (0...(i-1)).reversed() {
                 //依次拿第n个数倒序和之前n-1个数比较，遇到比它小或者等于它就插入到这个数的右边
@@ -91,6 +93,28 @@ extension SortClass {
                 }
             }
         }
+        
+        return array;
+    }
+    
+    static func selectionSort(_ array: inout[Int]) -> [Int] {
+        times = 0;
+        var minIndex = 0;
+        
+        for i in 0..<array.count {
+            for j in i..<array.count {
+                if array[j] < array[minIndex] {
+                    minIndex = j;
+                }
+            }
+            array.swapAt(i, minIndex);
+            //这里需要加一，因为是在i之后的数里面找到最小的
+            minIndex = i+1;
+            
+            times += 1;
+            print("第\(times)次----：\(array)");
+        }
+
         return array;
     }
 }
