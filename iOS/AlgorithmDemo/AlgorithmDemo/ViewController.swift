@@ -18,7 +18,8 @@ class ViewController: UIViewController {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        testQuickSort();
-        testBubbleSort();
+//        testBubbleSort();
+        testMergeSort();
     }
     
     func testQuickSort() {
@@ -27,6 +28,10 @@ class ViewController: UIViewController {
     
     func testBubbleSort() {
         SortClass.bubbleSort(&array);
+    }
+    
+    func testMergeSort() {
+        SortClass.mergeSort(&array);
     }
 
 }
