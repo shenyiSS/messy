@@ -20,14 +20,26 @@ class ViewController: UIViewController {
 //        testQuickSort();
 //        testBubbleSort();
         testMergeSort();
+//        testInsertSort();
+//        testSelectionSort();
+        
+        LeetCodeEasy.init().question1TwoSum(array, 16021);
     }
     
     func testQuickSort() {
-        SortClass.quickSort(&array, 0, array.count-1);
+        _ = SortClass.quickSort(&array, 0, array.count-1);
     }
     
     func testBubbleSort() {
-        SortClass.bubbleSort(&array);
+        _ = SortClass.bubbleSort(&array);
+    }
+    
+    func testInsertSort() {
+        _ = SortClass.insertSort(&array);
+    }
+    
+    func testSelectionSort () {
+        _ = SortClass.selectionSort(&array);
     }
     
     func testMergeSort() {
