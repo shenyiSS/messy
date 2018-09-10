@@ -14,18 +14,6 @@ class LeetCodeEasy: NSObject {
 
 extension LeetCodeEasy {
     
-    /* question1
-    给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
-    
-    你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
-    
-    示例:
-    
-    给定 nums = [2, 7, 11, 15], target = 9
-    
-    因为 nums[0] + nums[1] = 2 + 7 = 9
-    所以返回 [0, 1]
-    */
     func question1TwoSum(_ nums: [Int], _ target: Int) -> [Int] {
         //时间复杂度O(n²),空间复杂度O(1)
 //        for i in 0..<nums.count {
@@ -56,5 +44,35 @@ extension LeetCodeEasy {
         }
 
         return [];
+    }
+    
+    func question26removeDuplicates (_ nums: inout [Int]) -> Int {
+        //双指针
+        if nums.count < 2 {
+            return nums.count;
+        }
+        var i = 0;
+        for j in 1...nums.count-1 {
+            if nums[j] != nums[i] {
+                i += 1;
+                nums[i] = nums[j];
+            }
+        }
+        return i+1;
+    }
+    
+    func question27RemoveElement(_ nums: inout [Int], _ val: Int) -> Int {
+        if nums.count == 0 {
+            return 0;
+        }
+        //双指针，慢指针i和快指针j
+        var i = 0;
+        for j in 0...nums.count-1 {
+            if nums[j] != val {
+                nums[i] = nums[j];
+                i += 1;
+            }
+        }
+        return i;
     }
 }
