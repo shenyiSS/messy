@@ -52,7 +52,7 @@ extension LeetCodeEasy {
             return nums.count;
         }
         var i = 0;
-        for j in 1...nums.count-1 {
+        for j in 1..<nums.count {
             if nums[j] != nums[i] {
                 i += 1;
                 nums[i] = nums[j];
@@ -67,12 +67,48 @@ extension LeetCodeEasy {
         }
         //双指针，慢指针i和快指针j
         var i = 0;
-        for j in 0...nums.count-1 {
+        for j in 0..<nums.count {
             if nums[j] != val {
                 nums[i] = nums[j];
                 i += 1;
             }
         }
         return i;
+    }
+    
+    func question35SearchInsert(_ nums: [Int], _ target: Int) -> Int {
+        for i in 0..<nums.count {
+            if nums[i] >= target {
+                return i;
+            }
+        }
+        return nums.count;
+    }
+    
+    func question53MaxSubArray(_ nums: [Int]) -> Int {
+        var max = nums.first!;
+        
+        for i in 0..<nums.count {
+            var sum = 0;
+            for j in i..<nums.count {
+                sum += nums[j];
+                if sum > max {
+                    max = sum;
+                }
+            }
+        }
+        return max;
+        
+//        let count = nums.count
+//        var sub = nums[0]
+//        var maxSub = sub
+//        for i in 1..<count {
+//            let m = nums[i]
+        //第i个数和之前已经遍历过的子数组最大和作比较
+//            sub = max(m, m + sub)
+        //第i个数结果和第i-1个数的结果作比较
+//            maxSub = max(maxSub, sub)
+//        }
+//        return maxSub
     }
 }
