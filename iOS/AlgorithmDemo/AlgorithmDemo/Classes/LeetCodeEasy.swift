@@ -111,4 +111,36 @@ extension LeetCodeEasy {
 //        }
 //        return maxSub
     }
+    
+    func question66PlusOne(_ digits: [Int]) -> [Int] {
+        var result:[Int] = [];
+        
+        for element in digits {
+            result.append(element);
+        }
+        
+        if result.last != 9 {
+            result[result.count-1] += 1;
+            return result;
+        }
+        else {
+            result[result.count-1] += 1;
+
+            for i in (0..<result.count).reversed() {
+                if result[i] == 10 && i > 0{
+                    result[i] = 0;
+                    result[i-1] += 1;
+                }
+                else if result[i] == 10 && i == 0 {
+                    result[i] = 0;
+                    result.insert(1, at: 0);
+                }
+                else {
+                    return result;
+                }
+            }
+        }
+        
+        return result;
+    }
 }
