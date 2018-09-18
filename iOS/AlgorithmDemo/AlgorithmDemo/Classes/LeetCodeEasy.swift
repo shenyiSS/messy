@@ -34,13 +34,13 @@ extension LeetCodeEasy {
 //            }
 //        }
         //这种解法时间复杂度O(n),空间复杂度O(n)
-        var map = Dictionary<Int, Int>();
+        var map = Dictionary<Int, Int>()
         for i in 0..<nums.count {
-            let temp = target - nums[i];
+            let temp = target - nums[i]
             if map.keys.contains(temp) && i != map[temp]!{
-                return [i, map[temp]!];
+                return [i, map[temp]!]
             }
-            map[nums[i]] = i;
+            map[nums[i]] = i
         }
 
         return [];
@@ -49,51 +49,51 @@ extension LeetCodeEasy {
     func question26removeDuplicates (_ nums: inout [Int]) -> Int {
         //双指针
         if nums.count < 2 {
-            return nums.count;
+            return nums.count
         }
         var i = 0;
         for j in 1..<nums.count {
             if nums[j] != nums[i] {
-                i += 1;
-                nums[i] = nums[j];
+                i += 1
+                nums[i] = nums[j]
             }
         }
-        return i+1;
+        return i+1
     }
     
     func question27RemoveElement(_ nums: inout [Int], _ val: Int) -> Int {
         if nums.count == 0 {
-            return 0;
+            return 0
         }
         //双指针，慢指针i和快指针j
-        var i = 0;
+        var i = 0
         for j in 0..<nums.count {
             if nums[j] != val {
-                nums[i] = nums[j];
-                i += 1;
+                nums[i] = nums[j]
+                i += 1
             }
         }
-        return i;
+        return i
     }
     
     func question35SearchInsert(_ nums: [Int], _ target: Int) -> Int {
         for i in 0..<nums.count {
             if nums[i] >= target {
-                return i;
+                return i
             }
         }
-        return nums.count;
+        return nums.count
     }
     
     func question53MaxSubArray(_ nums: [Int]) -> Int {
-        var max = nums.first!;
+        var max = nums.first!
         
         for i in 0..<nums.count {
-            var sum = 0;
+            var sum = 0
             for j in i..<nums.count {
-                sum += nums[j];
+                sum += nums[j]
                 if sum > max {
-                    max = sum;
+                    max = sum
                 }
             }
         }
@@ -113,34 +113,59 @@ extension LeetCodeEasy {
     }
     
     func question66PlusOne(_ digits: [Int]) -> [Int] {
-        var result:[Int] = [];
+        var result:[Int] = []
         
         for element in digits {
-            result.append(element);
+            result.append(element)
         }
         
         if result.last != 9 {
-            result[result.count-1] += 1;
-            return result;
+            result[result.count-1] += 1
+            return result
         }
         else {
             result[result.count-1] += 1;
 
             for i in (0..<result.count).reversed() {
                 if result[i] == 10 && i > 0{
-                    result[i] = 0;
-                    result[i-1] += 1;
+                    result[i] = 0
+                    result[i-1] += 1
                 }
                 else if result[i] == 10 && i == 0 {
-                    result[i] = 0;
-                    result.insert(1, at: 0);
+                    result[i] = 0
+                    result.insert(1, at: 0)
                 }
                 else {
-                    return result;
+                    return result
                 }
             }
         }
         
-        return result;
+        return result
+    }
+    
+    func question88Merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        var i = m - 1
+        var j = n - 1
+        var index = m + n - 1
+        
+        while i >= 0 && j >= 0 {
+            if nums1[i] > nums2[j] {
+                nums1[index] = nums1[i]
+                i -= 1
+            }
+            else {
+                nums1[index] = nums2[j]
+                j -= 1
+            }
+            index -= 1
+        }
+        
+        while j >= 0 {
+            nums1[index] = nums2[j]
+            j -= 1
+            index -= 1
+        }
+        
     }
 }

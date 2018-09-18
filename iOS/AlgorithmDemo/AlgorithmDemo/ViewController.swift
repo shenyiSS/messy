@@ -17,33 +17,33 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        testQuickSort();
-//        testBubbleSort();
-        testMergeSort();
-//        testInsertSort();
-//        testSelectionSort();
+//        testQuickSort()
+//        testBubbleSort()
+        testMergeSort()
+//        testInsertSort()
+//        testSelectionSort()
         
-        LeetCodeEasy.init().question1TwoSum(array, 16021);
+        LeetCodeEasy.init().question1TwoSum(array, 16021)
     }
     
     func testQuickSort() {
-        _ = SortClass.quickSort(&array, 0, array.count-1);
+        _ = SortClass.quickSort(&array, 0, array.count-1)
     }
     
     func testBubbleSort() {
-        _ = SortClass.bubbleSort(&array);
+        _ = SortClass.bubbleSort(&array)
     }
     
     func testInsertSort() {
-        _ = SortClass.insertSort(&array);
+        _ = SortClass.insertSort(&array)
     }
     
     func testSelectionSort () {
-        _ = SortClass.selectionSort(&array);
+        _ = SortClass.selectionSort(&array)
     }
     
     func testMergeSort() {
-        SortClass.mergeSort(&array);
+        SortClass.mergeSort(&array)
     }
 
 }
