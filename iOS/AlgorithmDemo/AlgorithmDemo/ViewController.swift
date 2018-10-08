@@ -23,7 +23,9 @@ class ViewController: UIViewController {
 //        testInsertSort()
 //        testSelectionSort()
         
-        LeetCodeEasy.init().question1TwoSum(array, 16021)
+//        LeetCodeEasy.init().question1TwoSum(array, 16021)
+        let array = LeetCodeEasy.init().question118generate(5)
+        print(array)
     }
     
     func testQuickSort() {

@@ -166,6 +166,31 @@ extension LeetCodeEasy {
             j -= 1
             index -= 1
         }
+    }
+    
+    func question118generate(_ numRows: Int) -> [[Int]] {
         
+        var result = [[Int]]()
+        
+        if numRows == 1 {
+            return [[1]]
+        } else if numRows == 2 {
+            return [[1], [1, 1]]
+        } else if numRows <= 0 {
+            return []
+        }
+        
+        result = [[1], [1, 1]]
+        
+        for i in 3...numRows {
+            var array = [1, 1]
+            var prevArray = result[i-2]
+            for j in 2...i-1 {
+                let num = prevArray[j-2] + prevArray[j-1]
+                array.insert(num, at: array.count-1)
+            }
+            result.insert(array, at: result.count)
+        }
+        return result
     }
 }

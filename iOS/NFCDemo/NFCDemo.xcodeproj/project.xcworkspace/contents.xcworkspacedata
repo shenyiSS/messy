@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:WKWebView.xcodeproj">
+      location = "self:NFCDemo.xcodeproj">
    </FileRef>
 </Workspace>
