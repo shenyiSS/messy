@@ -169,14 +169,15 @@ extension LeetCodeEasy {
     }
     
     func question118generate(_ numRows: Int) -> [[Int]] {
-        
         var result = [[Int]]()
         
         if numRows == 1 {
             return [[1]]
-        } else if numRows == 2 {
+        }
+        else if numRows == 2 {
             return [[1], [1, 1]]
-        } else if numRows <= 0 {
+        }
+        else if numRows <= 0 {
             return []
         }
         
@@ -191,6 +192,23 @@ extension LeetCodeEasy {
             }
             result.insert(array, at: result.count)
         }
+        return result
+    }
+
+    func question119GetRow(_ rowIndex: Int) -> [Int] {
+        if rowIndex == 1 {
+            return [1, 1]
+        }
+        else if rowIndex <= 0 {
+            return [1]
+        }
+        
+        var result = [1]
+        var lastRow = question119GetRow(rowIndex - 1)
+        for i in 0..<lastRow.count-1 {
+            result.append(lastRow[i] + lastRow[i+1])
+        }
+        result.append(1)
         return result
     }
 }
