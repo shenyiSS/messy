@@ -211,4 +211,31 @@ extension LeetCodeEasy {
         result.append(1)
         return result
     }
+    
+    func question121MaxProfit(_ prices: [Int]) -> Int {
+        var profit = 0
+        
+        if prices.count < 2 {
+            return profit
+        }
+        
+        var result : [Int] = [0]
+        for i in 1...prices.count-1 {
+            result.append(prices[i] - prices[i-1])
+        }
+        
+        var temp = 0
+        for i in 0...prices.count-1 {
+            if temp + result[i] > 0 {
+                temp += result[i]
+            }
+            else {
+                temp = 0
+            }
+            
+            profit = max(profit, temp)
+        }
+    
+        return profit
+    }
 }

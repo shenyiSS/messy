@@ -19,13 +19,14 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        testQuickSort()
 //        testBubbleSort()
-        testMergeSort()
+//        testMergeSort()
 //        testInsertSort()
 //        testSelectionSort()
         
 //        LeetCodeEasy.init().question1TwoSum(array, 16021)
-        let array = LeetCodeEasy.init().question118generate(5)
-        print(array)
+//        let array = LeetCodeEasy.init().question118generate(5)
+//        print(array)
+        let result = LeetCodeEasy.init().question121MaxProfit([7,1,5,3,6,4])
     }
     
     func testQuickSort() {
