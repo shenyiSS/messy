@@ -255,5 +255,23 @@ extension LeetCodeEasy {
         return profit
     }
     
-    
+    func question414ThirdMax(_ nums: [Int]) -> Int {
+        var first = Int.min, second = Int.min, third = Int.min
+        
+        for num in nums {
+            if num > first {
+                third = second
+                second = first
+                first = num
+            }
+            else if num > second && num < first {
+                third = second
+                second = num
+            }
+            else if num > third && num < second {
+                third = num
+            }
+        }
+        return third == Int.min ? first : third
+    }
 }
